@@ -52,4 +52,9 @@ public class UsersDB implements Serializable {
     public void clear(){
         this.users.clear();
     }
+
+    @Override
+    public String toString() {
+        return "UsersDB users: \n" + users;
+    }
 }
