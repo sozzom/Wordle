@@ -1,10 +1,10 @@
 package Gioco;
 
 public class Slot {
-    char Char;
-    Colors color;
+    public char Char;
+    public Colors color;
     public Slot() {
-        this.Char = '_';
+        this.Char = ' ';
         //Inizializzo con il colore grigio
         this.color = Colors.GRAY;
     }

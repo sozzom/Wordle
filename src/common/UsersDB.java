@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class UsersDB implements Serializable {
     private static final long serialVersionUID = 1L;
-    private HashMap<String, User> users;
+    public HashMap<String, User> users;
 
     public UsersDB(){
         users = new HashMap<String, User>();
@@ -51,6 +51,10 @@ public class UsersDB implements Serializable {
     //remove all elements from data structure
     public void clear(){
         this.users.clear();
+    }
+
+    public int size() {
+        return users.size();
     }
 
     @Override

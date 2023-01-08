@@ -1,6 +1,9 @@
 package common;
 
+import Gioco.Game;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.function.ToDoubleBiFunction;
 
 public class User implements Serializable {
@@ -12,13 +15,19 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String status;
-
-    // TODO: 07/01/2023 Arricchire User
+    public ArrayList<String> playedWords;
+    public int score;
+    public int played;
+    public int wins;
 
     public User(String u, String p) {
         username = u;
         password = p;
         status = OFFLINE;
+        score = 0;
+        played = 0;
+        wins = 0;
+        playedWords = new ArrayList<>();
     }
 
     public String getUsername() {
@@ -33,6 +42,10 @@ public class User implements Serializable {
         return status;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public void setOnline() {
         status = ONLINE;
     }
@@ -43,6 +56,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return " User: " + "username = '" + username + '\'' + ", status = '" + status + '\''+ "\n";
+        return " User: " + "username = '" + username + '\'' + ", status = '" + status + '\'' + "\n";
     }
 }

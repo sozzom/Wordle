@@ -14,9 +14,13 @@ public class MultiThreadedServer {
 
     private UsersDB users;
     private final int TCP_Port = 4572;
+    private ServerNotificationService notificationService;
 
-    public MultiThreadedServer(UsersDB u) {
+
+    public MultiThreadedServer(UsersDB u, ServerNotificationService ns) {
         users = u;
+        notificationService = ns;
+
     }
 
     public void start() {
@@ -28,7 +32,9 @@ public class MultiThreadedServer {
             while(true){
                 Socket socket = listeningSocket.accept();       //accetto le richieste di connessione da parte degli utenti
                 System.out.println("System: un utente si e' connesso al sistema");
-                threadPool.execute(new RequestHandler(socket, users));   //gestisco le loro richieste
+
+                // TODO: 08/01/2023 controllare questa saveFile
+                threadPool.execute(new RequestHandler(socket, users,notificationService));   //gestisco le loro richieste
             }
         } catch (IOException e) {
             e.printStackTrace();
